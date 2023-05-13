@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        <h4>File Update</h4>
+        </div>
+    </div>
+
+    <a class="btn shadow-sm my-3" href="{% url 'files:file-list' %}">Go to Home</a>
+
+
+    <!-- <form action="" method="post">
+        {% csrf_token %}
+        <div class="container">
+            {{form|crispy}}
+        </div>
+        <button type="submit">Submit</button>
+    </form> -->
+
+    <!-- <div class="container">
+
+   
+    <div id="div_id_value_delineation" class="mb-3"> 
+        <label for="id_value_delineation" class="form-label requiredField">Value delineation </label> 
+        <input type="text" name="value_delineation" value="asasas" maxlength="60" class="textinput form-control" required="" id="id_value_delineation"> 
+    </div> 
+    <div id="div_id_delineation_date" class="mb-3"> 
+        <label for="id_delineation_date" class="form-label">Delineation date</label> 
+        <input type="text" name="delineation_date" value="2023-03-04 00:00:00" class="datetimeinput form-control" id="id_delineation_date"> 
+    </div> 
+    <div id="div_id_delineation_payment" class="mb-3"> 
+        <label for="id_delineation_payment" class="form-label requiredField">Delineation payment</label> 
+        <input type="text" name="delineation_payment" value="2000" maxlength="40" class="textinput form-control" required="" id="id_delineation_payment"> 
+    </div> 
+    <div id="div_id_consecutive_delineation" class="mb-3"> 
+        <label for="id_consecutive_delineation" class="form-label requiredField">Consecutive delineation </label> 
+        <input type="text" name="consecutive_delineation" value="assas" maxlength="40" class="textinput form-control" required="" id="id_consecutive_delineation"> 
+    </div> 
+    <div id="div_id_visited_by" class="mb-3"> 
+        <label for="id_visited_by" class="form-label requiredField">Visited by </label> 
+        <input type="text" name="visited_by" value="emeritus" maxlength="70" class="textinput form-control" required="" id="id_visited_by"> 
+    </div> 
+    <div id="div_id_State_type" class="mb-3"> 
+        <label for="id_State_type" class="form-label">State type</label> 
+        <select name="State_type" class="select form-select" id="id_State_type"> <option value="">---------</option> <option value="1">Asset</option> <option value="2" selected="">In Progress</option> <option value="3">Does Not Apply</option>
+
+        </select> 
+    </div> 
+    <div id="div_id_delivery_date" class="mb-3"> 
+        <label for="id_delivery_date" class="form-label">Delivery date</label> 
+        <input type="text" name="delivery_date" value="2023-03-04 00:00:00" class="datetimeinput form-control" id="id_delivery_date"> 
+    </div> 
+    <div id="div_id_notification_date" class="mb-3"> 
+        <label for="id_notification_date" class="form-label">Notification date</label> 
+        <input type="text" name="notification_date" value="2023-02-23 00:00:00" class="datetimeinput form-control" id="id_notification_date"> 
+    </div>
+
+    </div> -->
+
+<form action="" class="container shadow bg-white p-2" method="post">
+    {% csrf_token %}
+    <div class="row g-3 p-5">
+        <div id="div_id_file_name" class="mb-3 col-md-6"> 
+            <label for="id_file_name" class="form-label">File name</label> 
+            {{form.file_name}}
+        </div> 
+        <div id="div_id_file_type" class="col-md-6 mb-3"> 
+            <label for="id_file_type" class="form-label">Tipo de solicitud </label>
+            {{form.file_type}}
+        </div> 
+        <div id="div_id_headline" class="col-md-6 mb-3"> 
+            <label for="id_headline" class="form-label requiredField">Titular  </label> 
+            {{form.headline}}
+        </div> 
+
+        <div id="div_id_agent" class="col-md-6 mb-3 d-none"> 
+            <label for="id_agent" class="form-label">Agent</label> 
+            {{form.agent}}
+        </div> 
+
+        <div id="div_id_passport" class="mb-3 col-md-6"> 
+            <label for="id_passport" class="form-label requiredField">Passport </label> 
+            {{form.passport}}
+        </div> 
+
+        <div id="div_id_identify_holder" class="col-md-6 mb-3 d-none"> 
+            <label for="id_identify_holder" class="form-label requiredField">Identificación del titular  </label> 
+            {{form.identify_holder}}
+        </div> 
+        <div id="div_id_estate_reg" class="col-md-6 mb-3"> 
+            <label for="id_estate_reg" class="form-label requiredField">Matricula Inmobiliaria </label> 
+            {{form.estate_reg}}
+        </div> 
+        <div id="div_id_phone_number" class="col-md-6 mb-3"> 
+            <label for="id_phone_number" class="form-label requiredField">Telefono y/o Celular </label> 
+            {{form.phone_number}}        
+        </div> 
+        <div id="div_id_email" class="col-md-6 mb-3"> 
+            <label for="id_email" class="form-label requiredField"> Correo Electronico </label> 
+            {{form.email}}
+        </div>
+        
+        <div id="div_id_completed" class="mb-3 d-none"> 
+            {{form.completed}}
+            <label for="id_completed" class="form-check-label"> Completed </label> 
+        </div> 
+
+        <div id="div_id_value_delineation" class="col-md-6"> 
+            <label for="id_value_delineation" class="form-label requiredField">Value delineation </label> 
+            {{form.value_delineation}}
+        </div> 
+        <div id="div_id_delineation_date" class="col-md-6"> 
+            <label for="id_delineation_date" class="form-label">Delineation date</label> 
+            {{form.delineation_date}}
+        </div> 
+        <div id="div_id_delineation_payment" class="col-md-6"> 
+            <label for="id_delineation_payment" class="form-label requiredField">Delineation payment</label> 
+            {{form.delineation_payment}}
+        </div> 
+        <div id="div_id_consecutive_delineation" class="col-md-6"> 
+            <label for="id_consecutive_delineation" class="form-label requiredField">Consecutive delineation </label> 
+            {{form.consecutive_delineation}}
+        </div> 
+        <div id="div_id_visited_by" class="col-md-6"> 
+            <label for="id_visited_by" class="form-label requiredField">Visited by </label> 
+            {{form.visited_by}}
+        </div> 
+        <div id="div_id_State_type" class="col-md-4"> 
+            <label for="id_State_type" class="form-label">State type</label> 
+            {{form.State_type}}
+        </div> 
+        <div id="div_id_delivery_date" class="col-md-4"> 
+            <label for="id_delivery_date" class="form-label">Delivery date</label> 
+            {{form.delivery_date}}
+        </div> 
+        <div id="div_id_notification_date" class="col-md-4"> 
+            <label for="id_notification_date" class="form-label">Notification date</label> 
+            {{form.notification_date}}
+        </div>
+
+
+    </div>
+    <button type="submit" class="w-100 btn btn-primary">Submit</button>
+ </form>
+
+    <div class="my-5 text-center border">
+        <a href="{% url 'files:file-delete' file.pk %}" class="btn w-100 btn-danger">
+            Delete
+        </a>
+    </div>
+</div>
+
+{% endblock content %}

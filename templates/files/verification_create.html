@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- <form action="" class="mt-5" method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <br>
+    <button type="submit">Submit</button>
+</form> -->
+
+
+<!-- <form action="" class="mt-5" method="post">
+
+
+
+
+
+
+
+<div id="div_id_file_relate" class="mb-3"> <label for="id_file_relate" class="form-label requiredField">
+        File relate<span class="asteriskField">*</span> </label> <select name="file_relate" class="select form-select"
+        required="" id="id_file_relate">
+        <option value="" selected="">---------</option>
+        <option value="1">GS11</option>
+
+    </select> </div>
+
+    <br>
+    <button type="submit">Submit</button>
+</form> -->
+
+
+<h3>Document Create</h3>
+
+    
+
+
+<form action="" class="mt-5 container bg-white shadow" method="post">
+    {% csrf_token %}
+
+    <div class="row gy-3 p-4">
+
+        <div id="div_id_Copia_de_cedula_del_propietario_pasaporte" class="col-md-4 form-check"> 
+            {{form.Copia_de_cedula_del_propietario_pasaporte}}
+            <label for="id_Copia_de_cedula_del_propietario_pasaporte" class="form-check-label">Copia de cedula del propietario pasaporte </label> 
+        </div> 
+        <div id="div_id_Certificado_de_tradición_y_libertad" class="col-md-4 form-check"> 
+            {{form.Certificado_de_tradición_y_libertad}}
+            <label for="id_Certificado_de_tradición_y_libertad" class="form-check-label">Certificado de tradición y libertad</label> 
+        </div> 
+        <div id="div_id_Copia_de_la_escritura" class="col-md-4 form-check"> 
+            {{form.Copia_de_la_escritura}}
+            <label for="id_Copia_de_la_escritura" class="form-check-label">Copia de la escritura</label>
+        </div>
+        <div id="div_id_Paz_y_salvo_municipal" class="col-md-4 form-check"> 
+            {{form.Paz_y_salvo_municipal}}
+            <label for="id_Paz_y_salvo_municipal" class="form-check-label">Paz y salvo municipal</label> 
+        </div>
+        <div id="div_id_Copia_del_impuesto_predial" class="col-md-4 form-check"> 
+            {{form.Copia_del_impuesto_predial}}
+            <label for="id_Copia_del_impuesto_predial" class="form-check-label">Copia del impuesto predial</label> 
+        </div> 
+        <div id="div_id_Certificado_catastral" class="col-md-4 form-check"> 
+            {{form.Certificado_catastral}}
+            <label for="id_Certificado_catastral" class="form-check-label">Certificado catastral</label> 
+        </div> 
+        <div id="div_id_Planos_arquitectónicos_y_estructurales" class="col-md-4 form-check"> 
+            {{form.Planos_arquitectónicos_y_estructurales}}
+            <label for="id_Planos_arquitectónicos_y_estructurales" class="form-check-label">Planos arquitectónicos y estructurales</label> 
+        </div> 
+        <div id="div_id_Planos_topográficos" class="col-md-4 form-check"> 
+            {{form.Planos_topográficos}}
+            <label for="id_Planos_topográficos" class="form-check-label">Planos topográficos</label> 
+        </div>
+        <div id="div_id_CD_o_USB" class="col-md-4 form-check"> 
+            {{form.CD_o_USB}}
+            <label for="id_CD_o_USB" class="form-check-label">CD o USB</label> 
+        </div> 
+        <div id="div_id_Copia_de_la_tarjeta_profesional" class="col-md-4 form-check"> 
+            {{form.Copia_de_la_tarjeta_profesional}}
+            <label for="id_Copia_de_la_tarjeta_profesional" class="form-check-label">Copia de la tarjeta profesional</label> 
+        </div> 
+        <div id="div_id_Formulario_único_nacional" class="col-md-4 form-check"> 
+            {{form.Formulario_único_nacional}}
+            <label for="id_Formulario_único_nacional" class="form-check-label">Formulario único nacional</label> 
+        </div> 
+        <div id="div_id_Certificado_de_delineación_y_comprobante_de_pago" class="col-md-4 form-check"> 
+            {{form.Certificado_de_delineación_y_comprobante_de_pago}}
+            <label for="id_Certificado_de_delineación_y_comprobante_de_pago" class="form-check-label">Certificado de delineación y comprobante de pago</label> 
+        </div>
+        <div id="div_id_Viabilidad_de_energía_y_acueducto" class="col-md-4 form-check"> 
+            {{form.Viabilidad_de_energía_y_acueducto}}
+            <label for="id_Viabilidad_de_energía_y_acueducto" class="form-check-label">Viabilidad de energía y acueducto</label> 
+        </div> 
+        <div id="div_id_Viabilidad_de_alcantarillado_y_aseo" class="col-md-4 form-check"> 
+            {{form.Viabilidad_de_alcantarillado_y_aseo}}
+            <label for="id_Viabilidad_de_alcantarillado_y_aseo" class="form-check-label">Viabilidad de alcantarillado y aseo</label> 
+        </div> 
+        <div id="div_id_Certificado_de_sismo_resistencia" class="col-md-4 form-check"> 
+            {{form.Certificado_de_sismo_resistencia}}
+            <label for="id_Certificado_de_sismo_resistencia" class="form-check-label">Certificado de sismo resistencia</label> 
+        </div> 
+        <div id="div_id_Memorias_de_calculo" class="col-md-4 form-check"> 
+            {{form.Memorias_de_calculo}}
+            <label for="id_Memorias_de_calculo" class="form-check-label">Memorias de calculo</label> 
+        </div> 
+        <div id="div_id_Estudio_de_suelos" class="col-md-4 form-check"> 
+            {{form.Estudio_de_suelos}}
+            <label for="id_Estudio_de_suelos" class="form-check-label">Estudio de suelos</label> 
+        </div>
+        <div id="div_id_Peritaje_técnico" class="col-md-4 form-check">
+            {{form.Peritaje_técnico}} 
+            <label for="id_Peritaje_técnico" class="form-check-label">Peritaje técnico</label> 
+        </div>
+        <div id="div_id_Plan_de_majo_ambiental" class="col-md-4 form-check"> 
+            {{form.Plan_de_majo_ambiental}}
+            <label for="id_Plan_de_majo_ambiental" class="form-check-label">Plan de majo ambiental</label> 
+        </div> 
+        <div id="div_id_Plan_de_manejo_de_escombros" class="col-md-4 form-check"> 
+            {{form.Plan_de_manejo_de_escombros}}
+            <label for="id_Plan_de_manejo_de_escombros" class="form-check-label">Plan de manejo de escombros</label> 
+        </div> 
+        <div id="div_id_Plan_de_manejo_de_transito" class="col-md-4 form-check"> 
+            {{form.Plan_de_manejo_de_transito}}
+            <label for="id_Plan_de_manejo_de_transito" class="form-check-label">Plan de manejo de transito</label> 
+        </div>
+        <div id="div_id_Avaluó_comercial" class="col-md-4 form-check"> 
+            {{form.Avaluó_comercial}}
+            <label for="id_Avaluó_comercial" class="form-check-label">Avaluó comercial</label>
+        </div>
+        <div id="div_id_Declaración_de_antigüedad" class="col-md-4 form-check"> 
+            {{form.Declaración_de_antigüedad}}
+            <label for="id_Declaración_de_antigüedad" class="form-check-label">Declaración de antigüedad </label> 
+        </div>
+        <div id="div_id_Declaración_de_no_bienes" class="col-md-4 form-check">
+            {{form.Declaración_de_no_bienes}}
+            <label for="id_Declaración_de_no_bienes" class="form-check-label">Declaración de no bienes</label> 
+        </div>
+        <div id="div_id_Declaración_extrajuicio_de_sana_posesión" class="col-md-4 form-check"> 
+            {{form.Declaración_extrajuicio_de_sana_posesión}}
+            <label for="id_Declaración_extrajuicio_de_sana_posesión" class="form-check-label">Declaración extrajuicio de sana posesión</label> 
+        </div>
+        <div id="div_id_Copia_de_licencia" class="col-md-4 form-check"> 
+            {{form.Copia_de_licencia}}
+            <label for="id_Copia_de_licencia"class="form-check-label">Copia de licencia</label> 
+        </div>
+        <div id="div_id_Certificado_de_nomenclatura" class="col-md-4 form-check"> 
+            {{form.Certificado_de_nomenclatura}}
+            <label for="id_Certificado_de_nomenclatura" class="form-check-label">Certificado de nomenclatura </label> 
+        </div>
+        <div id="div_id_Certificado_del_sisben" class="col-md-4 form-check"> 
+            {{form.Certificado_del_sisben}}
+            <label
+                for="id_Certificado_del_sisben" class="form-check-label">
+                Certificado del sisben
+            </label> 
+        </div>
+        <div id="div_id_Certificado_de_desplazado" class="col-md-4 form-check"> 
+            {{form.Certificado_de_desplazado}}
+            <label for="id_Certificado_de_desplazado" class="form-check-label">
+                Certificado de desplazado
+            </label> 
+        </div>
+        <div id="div_id_Carta_de_aceptación_por_revisor" class="col-md-4 form-check"> 
+            {{form.Carta_de_aceptación_por_revisor}}
+            <label for="id_Carta_de_aceptación_por_revisor"
+                class="form-check-label">
+                Carta de aceptación por revisor
+            </label> 
+        </div>
+        <div id="div_id_Poder_autenticado" class="col-md-4 form-check"> 
+            {{form.Poder_autenticado}}
+            <label for="id_Poder_autenticado"class="form-check-label">Poder autenticado</label> 
+        </div>
+        <div id="div_id_Autorización_autenticada" class="col-md-4 form-check"> 
+            {{form.Autorización_autenticada}}
+            <label for="id_Autorización_autenticada" class="form-check-label">
+                Autorización autenticada
+            </label> 
+        </div>
+        <div id="div_id_Solicitud" class="col-md-4 form-check"> 
+            {{form.Solicitud}}
+                <label for="id_Solicitud"
+                class="form-check-label">
+                Solicitud
+            </label> 
+        </div>
+        <div id="div_id_Certificado_financiero" class="col-md-4 form-check"> 
+            {{form.Certificado_financiero}}
+                <label
+                for="id_Certificado_financiero" class="form-check-label">
+                Certificado financiero
+            </label> 
+        </div>
+        <div id="div_id_Contrato_de_promesa_de_compraventa" class="col-md-4 form-check"> 
+            {{form.Contrato_de_promesa_de_compraventa}}
+            <label for="id_Contrato_de_promesa_de_compraventa"
+                class="form-check-label">
+                Contrato de promesa de compraventa
+            </label> 
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary my-2">Submit</button>
+    </div>
+
+</form>
+
+{% endblock content %}

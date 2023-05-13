@@ -1,0 +1,259 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+        <!-- <a href="{% url 'files:file-update' file.pk %}">Update Details</a> -->
+        <div class="container">
+          <div class="main-body">
+
+              <div class="row gutters-sm">
+                  <div class="col-md-4 mb-3">
+                      <div class="card">
+                          <div class="card-body">
+                              <div class="d-flex flex-column align-items-center text-center">
+                                  <div class="mt-3">
+                                      <h4>{{ file.headline }}</h4>
+                                      <p class="text-secondary mb-1">{{ file.file_name }}</p>
+                                      <p class="text-secondary mb-1">{{ file.State_type }}</p>
+                                      <p class="text-secondary mb-1">{{ file.email }}</p>
+                                      {% for verifyy in file.verifyDoc.all %}
+                                            <a class="text-uppercase btn btn-primary" href="{% url 'files:track_progress' file.pk %}">Add Operation</a>
+                                        {% endfor %}
+                                      <!-- <button class="btn btn-outline-primary">Message</button> -->
+                                      
+                                      {% if not request.user.is_agent %}
+                                        <a class="btn btn-outline-primary " target="__blank"
+                                            href="{% url 'files:file-update' file.pk %}">Edit</a>
+                                      {% endif %}
+                                        
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <div class="col-md-8">
+                      <div class="card mb-3">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div class="col-sm-3">
+                                      <h6 class="mb-0">Matricula Inmobiliaria </h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                      {{ file.estate_reg }}
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-sm-3">
+                                      <h6 class="mb-0">Telefono y/o Celular </h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                      {{ file.phone_number }}
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-sm-3">
+                                      <h6 class="mb-0">Tipo de solicitud </h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                      {{ file.file_type }}
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-sm-3">
+                                      <h6 class="mb-0">Valor del certificado de delineacion</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                       {{ file.value_delineation }}
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-sm-3">
+                                      <h6 class="mb-0">Delineation date</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                       {{ file.delineation_date }}
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-sm-3">
+                                      <h6 class="mb-0">Delineation payment</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                       {{ file.delineation_payment }}
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                  <div class="col-sm-3">
+                                      <h6 class="mb-0">Consecutive delineation</h6>
+                                  </div>
+                                  <div class="col-sm-9 text-secondary">
+                                       {{ file.consecutive_delineation }}
+                                  </div>
+                              </div>
+                              <hr>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+
+          </div>
+        </div>
+
+        <div class="text-center my-5">
+            {% if not file.verifyDoc.all %}
+            
+            <p class="m-0 mt-3">Not Documentation added yet...</p>
+            <a class="btn btn-primary" href="{% url 'files:verifyDoc' file.pk %}">  Add verifyDoc </a>
+
+            {% else %}
+
+                    {% for verifyy in file.verifyDoc.all %}
+                    <h1 class="mt-5 text-center"><i>Document Submited</i></h1>
+                    <!-- <p>{{verifyy.observation}}</p> -->
+                        <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                <table
+                                    id="example"
+                                    class="table table-bordered table-striped "
+                                    style="width: 100%"
+                                >
+                                    <thead>
+                                    <tr>
+                                        <th>Copia de cedula del propietario pasaporte</th>
+                                        <th>Certificado de tradición y libertad</th>
+                                        <th>Copia de la escritura </th>
+                                        <th>Paz y salvo municipal</th>
+                                        <th>Copia del impuesto predial</th>
+                                        <th>Certificado catastral</th>
+                                        <th>Planos arquitectónicos y estructurales</th>
+                                        <th>Planos topográficos</th>
+                                        <th>CD o USB</th>
+                                        <th>Copia de la tarjeta profesional</th>
+                                        <th>Formulario único nacional</th>
+                                        <th>Certificado de delineación y comprobante de pago</th>
+                                        <th>Viabilidad de energía y acueducto</th>
+                                        <th>Viabilidad de alcantarillado y aseo</th>
+                                        <th>Certificado de sismo resistencia</th>
+                                        <th>Memorias de calculo</th>
+                                        <th>Estudio de suelos</th>
+                                        <th>Peritaje técnico</th>
+                                        <th>Plan de majo ambiental</th>
+                                        <th>Plan de manejo de escombros</th>
+                                        <th>Plan de manejo de transito</th>
+                                        <th>Avaluó comercial</th>
+                                        <th>Declaración de antigüedad</th>
+                                        <th>Declaración de no bienes</th>
+                                        <th>Declaración extrajuicio de sana posesión</th>
+                                        <th>Copia de licencia</th>
+                                        <th>Certificado de nomenclatura</th>
+                                        <th>Certificado del sisben</th>
+                                        <th>Certificado de desplazado</th>
+                                        <th>Carta de aceptación por revisor</th>
+                                        <th>Poder autenticado</th>
+                                        <th>Autorización autenticada</th>
+                                        <th>Solicitud</th>
+                                        <th>Certificado financiero</th>
+                                        <th>Contrato de promesa de compraventa</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="">
+                                            <td>{{ verifyy.Copia_de_cedula_del_propietario_pasaporte }}</td>
+                                            <td>{{ verifyy.Certificado_de_tradición_y_libertad }}</td>
+                                            <td>{{ verifyy.Copia_de_la_escritura }}</td>
+                                            <td>{{ verifyy.Paz_y_salvo_municipal }}</td>
+                                            <td>{{ verifyy.Copia_del_impuesto_predial }}</td>
+                                            <td>{{ verifyy.Certificado_catastral }}</td>
+                                            <td>{{ verifyy.Planos_arquitectónicos_y_estructurales }}</td>
+                                            <td>{{ verifyy.Planos_topográficos }}</td>
+                                            <td>{{ verifyy.CD_o_USB }}</td>
+                                            <td>{{ verifyy.Copia_de_la_tarjeta_profesional }}</td>
+                                            <td>{{ verifyy.Formulario_único_nacional }}</td>
+                                            <td>{{ verifyy.Certificado_de_delineación_y_comprobante_de_pago }}</td>
+                                            <td>{{ verifyy.Viabilidad_de_energía_y_acueducto }}</td>
+                                            <td>{{ verifyy.Viabilidad_de_alcantarillado_y_aseo }}</td>
+                                            <td>{{ verifyy.Certificado_de_sismo_resistencia }}</td>
+                                            <td>{{ verifyy.Memorias_de_calculo }}</td>
+                                            <td>{{ verifyy.Estudio_de_suelos }}</td>
+                                            <td>{{ verifyy.Peritaje_técnico }}</td>
+                                            <td>{{ verifyy.Plan_de_majo_ambiental }}</td>
+                                            <td>{{ verifyy.Plan_de_manejo_de_escombros }}</td>
+                                            <td>{{ verifyy.Plan_de_manejo_de_transito }}</td>
+                                            <td>{{ verifyy.Avaluó_comercial }}</td>
+                                            <td>{{ verifyy.Declaración_de_antigüedad }}</td>
+                                            <td>{{ verifyy.Declaración_de_no_bienes }}</td>
+                                            <td>{{ verifyy.Declaración_extrajuicio_de_sana_posesión }}</td>
+                                            <td>{{ verifyy.Copia_de_licencia }}</td>
+                                            <td>{{ verifyy.Certificado_de_nomenclatura }}</td>
+                                            <td>{{ verifyy.Certificado_del_sisben }}</td>
+                                            <td>{{ verifyy.Certificado_de_desplazado }}</td>
+                                            <td>{{ verifyy.Carta_de_aceptación_por_revisor }}</td>
+                                            <td>{{ verifyy.Poder_autenticado }}</td>
+                                            <td>{{ verifyy.Autorización_autenticada }}</td>
+                                            <td>{{ verifyy.Solicitud }}</td>
+                                            <td>{{ verifyy.Certificado_financiero }}</td>
+                                            <td>{{ verifyy.Contrato_de_promesa_de_compraventa }}</td>
+                                            <td><a class="btn btn-danger" href="{% url 'files:delete-verify' file.pk %}">  Delete </a></td>
+                                        </tr>
+
+                                        <!-- Delete Modal -->
+                                        <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Delete File</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <p>Are you sure you want to delete these Records?</p>
+                                                <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
+                                                <a href="{% url 'files:file-delete' file.pk %}" class="btn btn-danger">Delete</a>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                    {% endfor %}
+            {% endif %}
+        </div>
+
+
+        
+            {% for verifyy in file.verifyDoc.all %}
+                {% if verifyy.observation %}
+                    <div class="card w-100 mb-5">
+                        <div class="card-body px-5">
+                            <h5 class="card-title">Observation</h5>
+                            <p class="card-text">{{verifyy.observation}}</p>
+                            <small class="float-end "><i>created at: {{verifyy.observation_date}}</i></small>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+{% endblock content %}

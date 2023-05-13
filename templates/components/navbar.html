@@ -1,0 +1,73 @@
+{% load static %}
+
+<!-- top navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white py-1 px-2 ">
+  <div class="container-fluid">
+    {% if request.user.is_authenticated %}
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#sidebar"
+      aria-controls="offcanvasExample"
+    >
+      <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+    </button>
+    {% endif %}
+    <a
+      class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+      href="/"
+      >SLCD CRM
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#topNavBar"
+      aria-controls="topNavBar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="topNavBar">
+      <ul class="navbar-nav ms-auto">
+
+        {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="rounded-circle border d-flex justify-content-center align-items-center" style="width:30px; height:30px" >
+            <img class="img-fluid rounded-circle" src="{% static 'images/avatar.svg' %}" alt="Avatar">
+            </div>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if request.user.is_organisor  %}
+            <li><a class="dropdown-item" href='{% url "edit" %}'>Edit Profile</a></li>
+            <li><a class="dropdown-item" href='{% url "password_change" %}'>Change Password</a></li>
+            {% endif %}
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href='{% url "logout" %}'>Logout</a></li>
+          </ul>
+        </li>
+
+        <b class="my-auto">Welcome {{ request.user.username }}</b>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'land-page' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href='{% url "register" %}' class="nav-link">Signup</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href='{% url "login" %}'>Login</a>
+        </li>
+        {% endif %}
+
+
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- top navigation bar -->
+

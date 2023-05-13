@@ -1,0 +1,2 @@
+python manage.py loaddata filed/fixtures/posts-data.json
+python3 manage.py loaddata filed/fixtures/posts-data.json

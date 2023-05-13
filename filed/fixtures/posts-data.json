@@ -1,0 +1,140 @@
+[
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE CONSTRUCCIÓN "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE RECONOCIMIENTO  "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE RECONOCIMIENTO Y AMPLIACIÓN "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE AMPLIACIÓN "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE CONSTRUCCIÓN Y  MOVIMIENTO DE TIERRA"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE DEMOLICIÓN Y CONSTRUCCIÓN "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE MOVIMIENTO DE TIERRA "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE PARCELACIÓN Y MOVIMIENTO DE TIERRA"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE PARCELACIÓN "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE CONDOMINIO"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE SUBDIVISIÓN"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE SUBDIVISIÓN PARA ENGLOBE"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE SUBDIVISIÓN Y MOVIMIENTO DE TIERRA "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE ACLARACIÓN"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE PRÓRROGA"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "PERMISO DE VENTA"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE R.P:H"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE REFORMA Y / O ADICION AL  R.P:H "
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE REFORZAMIENTO ESTRUCTURAL"
+    }
+  },
+  {
+    "model": "filed.filetype",
+    "fields": {
+      "name": "LICENCIA DE REVALIDACIÓ"
+    }
+  },
+  {
+    "model": "filed.statetype",
+    "fields": {
+      "name": "Activo"
+    }
+  },
+  {
+    "model": "filed.statetype",
+    "fields": {
+      "name": "En progreso"
+    }
+  },
+  {
+    "model": "filed.statetype",
+    "fields": {
+      "name": "No aplica"
+    }
+  }
+]

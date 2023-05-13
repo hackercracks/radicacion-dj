@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>frg: {{verify.delineation}}</h2>
+
+<form action="" class="mt-5" method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+<!-- <section class="d-flex my-4 align-items-center justify-content-center" style="height: 100%; ">
+  <div class="rounded shadow" style="width: 360px; height: min-content; padding: 20px; ">
+  
+      <h1 class="text-center fs-3 mb-5">Verification Details!</h1>
+      
+      <form method="post" class="needs-validation">
+          {% csrf_token %}
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Delineation</label>
+              <input type="text" name="delineation" value={{verify.delineation}} maxlength="40" class=" form-control" id="id_delineation"> 
+          </div>
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Delineation date</label>
+              <input type="date" name="delineation_date" value={{verify.delineation_date}} class="form-control" id="id_delineation_date"> 
+          </div>
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Delineation payment</label>
+              <input type="text" name="delineation_payment" value={{verify.delineation_payment}} maxlength="40" class="form-control" id="id_delineation_payment"> 
+          </div>
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Liquidation</label>
+              <input type="text" name="liquidation" value={{verify.liquidation}} maxlength="40" class="form-control" id="id_liquidation"> 
+          </div>
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Liquidation date</label>
+              <input type="date" name="liquidation_date" value={{verify.liquidation_date}} class="form-control" id="id_liquidation_date"> 
+          </div>
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Liquidation payment</label>
+              <input type="text" name="liquidation_payment" value={{verify.liquidation_payment}} maxlength="40" class="form-control" id="id_liquidation_payment"> 
+          </div>
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Visited by</label>
+              <input type="text" name="visited_by" maxlength="40" value={{verify.visited_by}} class="form-control" id="id_visited_by"> 
+          </div>
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Number Of Observation</label>
+              <input type="text" name="no_observation" maxlength="40" value={{verify.no_observation}} class="textinput py-2 text-gray-700 border-gray-300 focus:outline-none leading-normal w-full appearance-none px-4 border block rounded-lg bg-white" required="" id="id_no_observation"> 
+          </div>
+          <div class="form-group mb-2">
+              <label class="form-label" for="">Date Of Observation</label>
+              <input type="date" name="date_observation" value={{verify.date_observation}} class="datetimeinput py-2 text-gray-700 border-gray-300 focus:outline-none leading-normal w-full appearance-none px-4 border block rounded-lg bg-white" id="id_date_observation"> 
+          </div>
+          <input class="btn btn-success w-100 mt-3" type="submit" value="Submit">
+      </form>
+  
+  </div>
+</section> -->
+
+{% endblock content %}

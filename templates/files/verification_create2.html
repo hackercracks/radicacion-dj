@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- <form action="" class="mt-5" method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <br>
+    <button type="submit">Submit</button>
+</form> -->
+
+<h3>Document Create</h3>
+
+
+<form action="" class="mt-5 container bg-white shadow" method="post">
+    {% csrf_token %}
+
+    <div class="row g-3">
+        <div id="div_id_delineation" class="mb-3 col-md-6"> 
+            <label for="id_delineation" class="form-label requiredField">Fecha del Certificado de delineación </label> 
+            <input type="text" name="delineation" maxlength="40" class="textinput form-control" required="" id="id_delineation"> 
+        </div> 
+        <div id="div_id_delineation_payment" class="mb-3 col-md-6"> 
+            <label for="id_delineation_payment" class="form-label requiredField">Número comprobante de pago delineación </label> 
+            <input type="text" name="delineation_payment" maxlength="40" class="textinput form-control" required="" id="id_delineation_payment"> 
+        </div> 
+
+        <div id="div_id_delineation_date" class="mb-3 col-md-6"> 
+            <label for="id_delineation_date" class="form-label">Fecha del Certificado de delineación</label> 
+            <input type="datetime-local" name="delineation_date" class="datetimeinput form-control" id="id_delineation_date"> 
+        </div>
+        
+        <div id="div_id_liquidation" class="mb-3 col-md-6"> 
+            <label for="id_liquidation" class="form-label requiredField">Valor de la liquidación  </label> 
+            <input type="text" name="liquidation" maxlength="40" class="textinput form-control" required="" id="id_liquidation"> 
+        </div> 
+        <div id="div_id_liquidation_payment" class="mb-3 col-md-6"> 
+            <label for="id_liquidation_payment" class="form-label requiredField">comprobante de pago de la liquidación </label> 
+            <input type="text" name="liquidation_payment" maxlength="40" class="textinput form-control" required="" id="id_liquidation_payment"> 
+        </div> 
+
+        <div id="div_id_liquidation_date" class="mb-3 col-md-6"> 
+            <label for="id_liquidation_date" class="form-label">Fecha de notificación de la liquidación</label> 
+            <input type="datetime-local" name="liquidation_date" class="datetimeinput form-control" id="id_liquidation_date"> 
+        </div>
+
+        <div id="div_id_visited_by" class="mb-3 col-md-6"> 
+            <label for="id_visited_by" class="form-label requiredField">visitado por  </label> 
+            <input type="text" name="visited_by" maxlength="40" class="textinput form-control" required="" id="id_visited_by"> 
+        </div> 
+        <div id="div_id_no_observation" class="mb-3 col-md-6"> 
+            <label for="id_no_observation" class="form-label requiredField">Número acta de obsevaciones  </label> 
+            <input type="text" name="no_observation" maxlength="40" class="textinput form-control" required="" id="id_no_observation"> 
+        </div>
+
+        <div id="div_id_date_observation" class="mb-3 col-md-6"> 
+            <label for="id_date_observation" class="form-label">Fecha de notificación del acta de observación al titular </label> 
+            <input type="datetime-local" name="date_observation" class="datetimeinput form-control" id="id_date_observation"> 
+        </div>
+    
+        <br>
+        <button type="submit" class="btn btn-primary my-2">Submit</button>
+    </div>
+
+</form>
+
+{% endblock content %}

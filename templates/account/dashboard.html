@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<!-- <div class="container mt-5">
+        <h1>Dashboard</h1>
+        <p>Welcome to your dashboard. You can 
+                <a href="{% url "edit" %}">edit your profile</a> 
+                or <a href="{% url "password_change" %}">change your password</a>.
+        </p>
+</div> -->
+
+
+{% if request.user.is_organisor and not request.user.is_support %}
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card bg-info text-white h-100">
+                        <div class="card-body py-3">
+                            <p class="text-center">Total tramites</p>
+                            <p class="text-center">{{ total_file_count }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card bg-info text-white h-100">
+                        <div class="card-body py-3">
+                            <p class="text-center">archivos agregados en los últimos 30 días</p>
+                            <p class="text-center">{{ total_in_past30 }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card bg-info text-white h-100">
+                        <div class="card-body py-3">
+                            <p class="text-center">Convertido en los últimos 30 días</p>
+                            <p class="text-center">{{ converted_in_past30 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+<br>
+<h4>Formulario aquí</h4>
+        {{form}}
+
+{% endblock %}

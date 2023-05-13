@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row" style="height: 70vh;">
+    <a class="" href="{% url 'files:file-list' %}">Go back to leads</a>
+    <div class="">
+        <h1 class="text-center">Assign an agent to this lead</h1>
+    </div>
+
+    <div class="justify-content-center d-flex align-item-center">
+        <form method="post" class="">
+            {% csrf_token %}
+            <label for="id_agent">Agent:</label>
+
+            <select class="form-select" aria-label="Default select example"  name="agent" required="" id="id_agent">
+                <option selected>----------------</option>
+                {% for c in form.fields.agent.queryset %}
+                    <option value={{c.id}}>{{c.user.username}}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" class="w-100 btn btn-primary mt-4 ">
+                Submit
+            </button>
+        </form>
+    </div>
+
+    
+</div>
+
+{% endblock content %}

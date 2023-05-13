@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Your Email Title</title>
+	<style>
+		/* Reset styles to remove default margins and paddings */
+		body, html, table {
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+		
+		/* Set background color and font styles */
+		body {
+			background-color: #f4f4f4;
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.5;
+			color: #333333;
+		}
+		
+		/* Set the width of the email and center it */
+		.container {
+			width: 600px;
+			margin: 0 auto;
+		}
+		
+		/* Set the header styles */
+		.header {
+			background-color: #FFFFFF;
+			padding: 20px;
+			text-align: center;
+			border-bottom: 1px solid #CCCCCC;
+		}
+		
+		/* Set the content styles */
+		.content {
+			background-color: #FFFFFF;
+			padding: 20px;
+			border-bottom: 1px solid #CCCCCC;
+		}
+		
+		/* Set the footer styles */
+		.footer {
+			background-color: #FFFFFF;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		/* Set the link styles */
+		a {
+			color: #337ab7;
+			text-decoration: none;
+		}
+		
+		/* Set the button styles */
+		.btn {
+			background-color: #337ab7;
+			border: none;
+			color: #FFFFFF;
+			padding: 10px 20px;
+			border-radius: 5px;
+			display: inline-block;
+			margin-top: 10px;
+			text-decoration: none;
+		}
+		
+		/* Set the button hover styles */
+		.btn:hover {
+			background-color: #286090;
+			cursor: pointer;
+		}
+		
+		/* Set the image styles */
+		img {
+			display: block;
+			max-width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<img src="https://www.gob.ec/sites/default/files/styles/gobec_image_content/public/2020-09/etiquetas%20para%20tramites%20-02.png.jpeg?itok=QYOu-wFo" alt="Logo">
+		</div>
+		
+		<div class="content">
+			<h1>Resolución Generada</h1>
+			<!-- <p>Dear [Recipient],</p> -->
+			<p>La resolusión del tramite con radicado {{radicado}}, se encuentra lista para reclamar en la dependecia, 
+				debe ser el titular de la licencia, o puede otrorgar poder a una tercera persona debidamente autenticada.
+			</p>
+			
+		</div>
+		
+		<div class="footer">
+			<p>Su resolución se encuentra lista, por favor acercarse a la oficina de planeacón</p>
+		</div>
+	</div>
+</body>
+</html>

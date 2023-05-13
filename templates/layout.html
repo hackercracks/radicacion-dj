@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.72.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+     <!-- FontAwesome 4.7.0 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link
+      rel="stylesheet"
+      href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css'
+    />
+    <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+
+    <style type="text/css">
+        /* Icon progressbar */
+
+        #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+            color: #455a64;
+            padding-left: 0;
+            margin-top: 30px;
+        }
+
+        #progressbar li {
+            list-style-type: none;
+            font-size: 13px;
+            width: 20%;
+            float: left;
+            position: relative;
+            font-weight: 400;
+        }
+
+        #progressbar .step0::before {
+            font-family: FontAwesome;
+            content: '\f10c';
+            color: #fff;
+        }
+
+        #progressbar li::before {
+            width: 40px;
+            height: 40px;
+            line-height: 45px;
+            display: block;
+            font-size: 20px;
+            background: #c5cae9;
+            border-radius: 50%;
+            margin: auto;
+            padding: 0;
+        }
+
+        /* Progressbar connector */
+        #progressbar li::after {
+            content: '';
+            width: 100%;
+            height: 12px;
+            background-color: #c5cae9;
+            position: absolute;
+            top: 16px;
+            left: 0;
+            z-index: -1;
+        }
+
+        #progressbar li:last-child::after {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            position: absolute;
+            left: -50%;
+        }
+
+        #progressbar li:nth-child(2)::after,
+        #progressbar li:nth-child(3)::after {
+            left: -0%;
+        }
+
+        #progressbar li:first-child::after {
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            position: absolute;
+            left: 50%;
+        }
+
+        /* Color number of the step and the connect tor before it */
+
+        #progressbar li.active::before,
+        #progressbar li.active::after {
+            background-color: #063372;
+        }
+
+        #progressbar li.active::before {
+            font-family: FontAwesome;
+            content: '\f00c';
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0 solid transparent;
+            border-radius: 0;
+            margin-bottom: 30px;
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.57rem;
+        }
+    </style>
+
+</head>
+
+<body class="" style="background-color: #e7e8e9;">
+    {% include 'components/navbar.html' %}
+    {% include 'components/sidebar.html' %}
+
+    
+    <main class="mt-5 pt-3">
+        <div class="container">
+
+            {% if messages %}
+                {% for message in messages %}
+
+                <div class="alert alert-{{ message.tags }} text-center alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+
+
+            {% block content %}
+            {% endblock content %}
+
+        </div>
+    </main>
+    
+
+    <script src="{% static './js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="{% static './js/jquery-3.5.1.js' %}"></script>
+    <script src="{% static './js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static './js/dataTables.bootstrap5.min.js' %}"></script>
+    <script src="{% static './js/script.js' %}"></script>
+
+    {% block script %}{% endblock %}
+    
+</body>
+
+</html>

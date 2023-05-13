@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <!-- {/* Banner Image  */} -->
+    <div class="w-100 d-flex justify-content-center align-items-center" 
+    style="background-size: cover; background-image: url('{% static 'images/pic1.jpg' %}'); height: 70vh;"
+    >
+      <div class="content text-center">
+        <h1 class="text-white" style="font-size: 40px; font-weight: bold;"> Track Your Status<br> Below </h1>
+      </div>
+    </div>
+
+    <!-- {/* Search Start */} -->
+    <div
+      class="container shadow bg-light mb-5 rounded"
+      style="padding: 20px; margin-top: -50px;"
+    >
+      <div class="container">
+        <form class="row g-2">
+          <div class="col-md-10">
+            <input class="form-control py-3 border-0" name="q" type="search" placeholder="Input Tracking ID" aria-label="Search">
+          </div>
+
+          <div class="col-md-2">
+            <button class="btn btn-dark border-0 w-100 py-3">
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- {/* Search End */} -->
+
+
+<!-- progress bar -->
+
+<div class="container px-1 px-md-4 py-5 mx-auto">
+  <div class="card rounded p-3" style="z-index: 0;">
+    
+    {% if data %}
+
+      {% for data in data %}
+        <div class="d-flex justify-content-between px-5 pt-5">
+          <h5>
+            Tracking ID 
+            <span class="text-primary mx-2 fw-bold">{{ data.ref_code }}</span>
+          </h5>
+          <div>
+            <p>
+              Created <span class="fw-bold mx-2">{{ data.file_date_added }}</span>
+            </p>
+          </div>
+        </div>
+        <!-- Add class "active" to progress -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-12">
+            
+              <ul id="progressbar" class="text-center">
+                <li class="active step0"></li>
+                <li class="active step0"></li>
+                
+                {% if data.agent %}
+                  <li class="active step0"></li>
+                {% else %}
+                  <li class="step0"></li>
+                {% endif %}
+
+                {% if data.completed %}
+                  <li class="active step0"></li>
+                {% else %}
+                  <li class="step0"></li>
+                {% endif %}
+                  
+              </ul>
+            
+              
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between px-5 pt-5">
+          <div class="d-flex d-flex icon-content">
+            <img src="{% static 'images/CheckList.png' %}" alt="" class="icon" />
+            <p class="font-weight-bold">File <br />Create</p>
+          </div>
+          <div class="d-flex d-flex icon-content">
+            <img src="{% static 'images/Delivery.png' %}" alt="" class="icon" />
+            <p class="font-weight-bold">File <br />Processed</p>
+          </div>
+          <div class="d-flex d-flex icon-content">
+            <img src="{% static 'images/Shipping.png' %}" alt="" class="icon" />
+            <p class="font-weight-bold">File <br />Assigned</p>
+          </div>
+          <div class="d-flex d-flex icon-content">
+            <img src="{% static 'images/Home.png' %}" alt="" class="icon" />
+            <p class="font-weight-bold">File <br />Approved</p>
+          </div>
+          
+        </div>
+        {% endfor %}
+
+    {% else %}
+        <h2 class="text-center p-3">No Record Found</h2>
+    {% endif %}
+      
+    </div>
+  </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,332 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="d-flex mt-3 justify-content-around align-items-center ">
+
+    {% if request.user.is_support %}
+    <button class="shadow btn btn-primary rounded-pill">
+        <a class="text-white" style="text-decoration: none;" href="{% url 'files:file-create' %}">
+            Create a new file
+        </a>
+    </button>
+    {% endif %}
+</div>
+
+<!-- {% if not request.user.is_support %}
+<div class="row">
+    <div class="col-md-12 my-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped data-table" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>Titular </th>
+                                <th>Radicado </th>
+                                <th>Tipo de solicitud </th>
+                                <th>Correo Electronico</th>
+                                <th>Matricula Inmobiliaria</th>
+                                <th>Telefono y/o Celular </th>
+
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for file in files %}
+                            <tr class="bg-white">
+                                <td class="">
+                                    {{ file.headline| truncatechars:13 }}
+                                </td>
+                                <td class="">
+                                    {{ file.file_name }}
+                                </td>
+                                <td class="">
+                                    {{ file.file_type }}
+                                </td>
+                                <td class="">
+                                    {{ file.email }}
+                                </td>
+                                <td class="">
+                                    {{ file.estate_reg }}
+                                </td>
+                                <td class="">
+                                    {{ file.phone_number }}
+                                </td>
+
+                                <td>
+
+                                    <div class="d-flex ">
+                                        {% if request.user.is_organisor %}
+                                        <a href="{% url 'files:file-update' file.pk %}"><i
+                                                class="material-icons text-warning" data-toggle="tooltip"
+                                                title="Edit">&#xE254;</i></a>
+
+                                        {% endif %}
+                                        <a href="{% url 'files:file-detail' file.pk %}"><i class="material-icons"
+                                                title="View" data-toggle="tooltip">&#xE417;</i></a>
+                                        <a data-bs-toggle="modal" href="#deleteEmployeeModal" class="text-danger"><i
+                                                class="material-icons" data-toggle="tooltip"
+                                                title="Delete">&#xE872;</i></a>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                            <div class="modal fade" id="deleteEmployeeModal" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Delete File</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <p>Are you sure you want to delete these Records?</p>
+                                            <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <a href="{% url 'files:file-delete' file.pk %}"
+                                                class="btn btn-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% empty %}
+
+                            <tr>
+                                <td colspan="8" class="text-center">There are currently no leads</td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %} -->
+
+{% if not request.user.is_support %}
+<div class="row my-3">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive project-list">
+                    <table class="table project-table table-centered table-nowrap">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Titular</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for file in files %}
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{file.headline}}</td>
+                                <td>{{file.file_date_added}}</td>
+                                <td>
+                                    <span class="text-success font-12"><i
+                                            class="mdi mdi-checkbox-blank-circle mr-1"></i> Completed</span>
+                                </td>
+                                <td>
+                                    <div class="d-flex ">
+                                        {% if request.user.is_organisor %}
+                                        <a href="{% url 'files:file-update' file.pk %}">
+                                            <!-- <i class="material-icons text-warning" data-toggle="tooltip" title="Edit">&#xE254;</i> -->
+                                            <i class="fa fa-pencil h5 m-0 text-success"></i>
+                                        </a>
+
+                                        {% endif %}
+                                        <a href="{% url 'files:file-detail' file.pk %}"><i class="material-icons"
+                                                title="View" data-toggle="tooltip">&#xE417;</i></a>
+                                        <a data-bs-toggle="modal" href="#deleteEmployeeModal" class="text-danger">
+                                            <!-- <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i> -->
+                                            <i class="fa fa-remove h5 m-0"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+
+                            <tr>
+                                <td colspan="8" class="text-center">There are currently no leads</td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pt-3">
+                    <ul class="pagination justify-content-end mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="container my-3">
+
+    {% if request.user.is_organisor or request.user.is_support %}
+
+    <ul class="nav nav-pills p-2 bg-white mb-3 rounded-pill align-items-center"
+        id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill px-2 px-md-3 active" id="pills-unassigned-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-unassigned" type="button" role="tab" aria-controls="pills-unassigned"
+                aria-selected="true">Unassigned</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill px-2 px-md-3" id="pills-assigned-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-assigned" type="button" role="tab" aria-controls="pills-assigned"
+                aria-selected="false">Assigned</button>
+        </li>
+        
+        {% if request.user.is_support %}
+            <button class="ms-auto btn btn-primary rounded-pill">
+                <a class="text-white" style="text-decoration: none;" href="{% url 'files:file-create' %}">
+                    Create a new file
+                </a>
+            </button>
+        {% endif %}
+
+    </ul>
+
+    <div class="tab-content bg-transparent" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-unassigned" role="tabpanel" aria-labelledby="pills-unassigned-tab">
+            {% if unassigned_files.exists  %}
+            <div class="row">
+
+                {% for file in unassigned_files %}
+                <div class="col-md-4">
+                    <div class="card card-body" style="border-radius: 2rem;">
+                        <h5 class="text-truncate w-75 mb-0">
+                            {{file.headline}} <i class="fa fa-circle font-10 text-danger"></i>
+                        
+                            <a href="{% url 'files:file-update' file.pk %}"><i class="material-icons float-end text-warning"
+                                    data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        </h5>
+                        <p class="fw-bold text-muted">{{file.file_date_added}}</p>
+                        <div class="">
+                            <p class="text-muted"> {{file.file_type}}</p>
+                        </div>
+
+                        {% if request.user.is_organisor %}
+
+                        <div class="text-center fw-bold mt-3">
+
+                            {% if file.State_type.id == 2 %}
+                            <p class="text-primary">{{file.State_type}}</p>
+                            {% else %}
+                            <a href="{% url 'files:assign-agent' file.pk %}" class="card-link text-danger">
+                                Assign an agent
+                                <i class="bi-caret-right-fill"></i>
+                            </a>
+                            {% endif %}
+
+                        </div>
+            {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            {% endif %}
+        </div>
+        <div class="tab-pane fade" id="pills-assigned" role="tabpanel" aria-labelledby="pills-assigned-tab">
+
+            <div class="row">
+
+                {% for file in files %}
+                <div class="col-md-4">
+                    <div class="card card-body" style="border-radius: 2rem;">
+                        <h5 class="text-truncate w-75 mb-0">
+                            {{file.headline}} <i class="fa fa-circle ml-1 font-10 text-success"></i></h5>
+                        <p class="font-12 text-muted">{{file.file_date_added}}</p>
+                        <div class="">
+                            <p class="text-muted"> {{file.file_type}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+<!-- {% if request.user.is_organisor or request.user.is_support %}
+{% if unassigned_files.exists  %}
+<div class="row">
+    <div class="p-2 mt-4 col-12">
+        <h1 class="text-center">Unassigned files</h1>
+    </div>
+    {% for file in unassigned_files %}
+
+    <div class="col-md-4 my-3">
+        <div class="card text-center border-0 shadow-sm" style="height: 100%;">
+            <div class="card-body bg-danger text-white">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="bg-white" style="height: 50; width: 50px; border-radius: 50%;">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-100 h-100 text-danger" viewBox="0 0 24 24">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h5 class="card-title">{{ file.headline }}</h5>
+                        <p class="card-text">{{ file.email }}</p>
+                    </div>
+                    <div class="col-2">
+                        <a href="{% url 'files:file-update' file.pk %}"><i class="material-icons text-warning"
+                                data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    </div>
+                </div>
+            </div>
+            {% if request.user.is_organisor %}
+            <div class="card-footer">
+
+                {% if file.State_type.id == 2 %}
+                <p>{{file.State_type}}</p>
+                {% else %}
+                <a href="{% url 'files:assign-agent' file.pk %}" class="card-link text-danger">
+                    Assign an agent
+                    <i class="bi-caret-right-fill"></i>
+                </a>
+                {% endif %}
+
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endif %} -->
+
+{% endblock content %}

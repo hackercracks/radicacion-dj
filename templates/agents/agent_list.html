@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="text-center">Agents</h1>
+    <div class="d-flex justify-content-around align-items-center py-3 mt-5">
+        <div>
+            <a class="btn shadow-sm" style="text-decoration: none;" href="{% url 'agents:support-create' %}">Create a new support</a>
+        </div>
+        <div>
+            <a class="btn shadow-sm" style="text-decoration: none;" href="{% url 'agents:agent-create' %}">Create a new agent</a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 my-3">
+        <div class="card">
+            <div class="card-header">
+            <span><i class="bi bi-table me-2"></i></span> Data Table
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table
+                id="example"
+                class="table data-table"
+                style="width: 100%"
+                >
+                <thead class="bg-light">
+                    <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                    {% for agent in object_list %}
+                        <tr class="bg-white">
+                            <td>
+                                {{ agent.user.username }}
+                            </td>
+                            <td>
+                                {{ agent.user.email }}
+                            </td>
+                            <td>
+                                {% if agent.user.is_agent %}    
+                                    <!-- Agent -->
+                                    responsable
+                                {% else %}
+                                    <!-- Support -->
+                                    Atención al cliente
+                                {% endif %}
+                            </td>
+                            <td>
+
+                                <a href="{% url 'agents:agent-update' agent.pk %}"><i class="material-icons text-warning" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                <!-- <a href="#"><i class="material-icons" title="View" data-toggle="tooltip">&#xE417;</i></a> -->
+                                <a data-bs-toggle="modal" href="#deleteEmployeeModal" class="text-danger"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                            
+                            </td>
+
+                        </tr>
+
+                        <!-- Delete Modal -->
+                        <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p>Are you sure you want to delete these User?</p>
+                                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
+                                    <a href="{% url 'agents:agent-delete' agent.user.id %}" class="btn btn-danger">Delete</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% empty %}
+
+                        <tr>
+                            <td colspan="4" class="text-center">
+                                <!-- There are currently no agents -->
+                                Actualmente no hay responsable
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                    </tr>
+                </tfoot>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock content %}

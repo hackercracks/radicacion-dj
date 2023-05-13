@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="">
+        <a class="text-dark btn shadow-sm mt-2" style="text-decoration: none;" href="{% url 'agents:agent-list' %}">Go back to agents</a>
+</div>
+
+<section class="d-flex align-items-center my-4 justify-content-center" style="height: 100%;">
+    <div class="rounded shadow" style="width: 360px; height: min-content; padding: 20px; ">
+    
+        <h1 class="text-center fs-3 mb-2">Create a new agent!</h1>
+        
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+
+        <form method="post" class="needs-validation">
+            {% csrf_token %}
+            <div class="form-group was-validated">
+                <label class="form-label" for="email">Email address</label>
+                {{form.email}}
+                <!-- <input type="email" name="email" maxlength="254" class="form-control" required id="id_email">  -->
+
+                <div class="invalid-feedback">
+                    Please enter your email address
+                </div>
+            </div>
+            <div class="form-group was-validated">
+                <label class="form-label" for="Username">Username</label>
+                {{form.username}}
+                <!-- <input type="text" name="username" maxlength="150" class="form-control" required id="id_username">  -->
+                <div class="invalid-feedback">
+                    Please enter your Username
+                </div>
+            </div>
+            <div class="form-group was-validated">
+                <label class="form-label" for="First name">First name</label>
+                {{form.first_name}}
+                <!-- <input type="text" name="first_name" maxlength="150" class="form-control" required id="id_first_name">  -->
+                <div class="invalid-feedback">
+                    Please enter your first_name
+                </div>
+            </div>
+            <div class="form-group was-validated">
+                <label class="form-label" for="First name">Last name</label>
+                {{form.last_name}}
+                <!-- <input type="text" name="last_name" maxlength="150" class="form-control" required id="id_last_name">  -->
+                <div class="invalid-feedback">
+                    Please enter your first_name
+                </div>
+            </div>
+            <input class="btn btn-success w-100 mt-3" type="submit" value="Submit">
+        </form>
+
+        <!-- {{form}} -->
+    
+    </div>
+</section>
+{% endblock content %}
